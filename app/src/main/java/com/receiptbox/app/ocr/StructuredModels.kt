@@ -40,7 +40,7 @@ data class StructuredReceiptParse(
     val receiptNumber: String? = null,
     val cashier: String? = null,
     val registerId: String? = null,
-    val currency: String = "USD",
+    val currency: String = "ILS",
     val subtotal: Double? = null,
     val tax: Double? = null,
     val total: Double? = null,
@@ -51,5 +51,5 @@ data class StructuredReceiptParse(
     val discounts: List<ParsedDiscount> = emptyList(),
     val payments: List<ParsedPayment> = emptyList(),
     val confidence: Float = 0f,
-    val parserVersion: String = "1.1-il"
+    val parserVersion: String = "1.3-il-real"
 )

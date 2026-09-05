@@ -1,41 +1,51 @@
 # ReceiptBox
 
-Snap receipts → on-device OCR → **structured relational expense data** → analytics + CSV/JSON/PDF export for accountants.
+Snap receipts → **multilingual on-device OCR** → structured relational expense data → analytics + CSV/JSON/PDF export for accountants.
 
 **applicationId:** `com.receiptbox.app`  
+**Version:** 0.1.1  
 **Monetization:** one-time Play product `receiptbox_pro` ($9.99)
 
 ## Features
 
 - CameraX capture + gallery picker
-- ML Kit Text Recognition (Latin) on-device
+- **Multilingual OCR** (offline):
+  - Image preprocess (grayscale / contrast) + orientation search
+  - **ML Kit** Latin + Chinese + Japanese + Korean + Devanagari (merged)
+  - **Tesseract 5** (`tesseract4android`) with `tessdata_fast` packs
+  - Default bundled packs (~28 MB): `eng, heb, ara, rus, deu, fra, spa, por, ita, tur, pol`
+  - Settings → download more languages from tessdata_fast; packs stored under app private files
 - Heuristic structured parser → Company, Store, Receipt, LineItems, Discounts, Payments, Product catalog, Raw OCR audit
-- Jetpack Compose + Material 3 UI (onboarding, home, capture/edit, detail, analytics, export, paywall, settings)
+- Jetpack Compose + Material 3 UI
 - Room database with FKs + indices
 - Free: max **15** receipts + watermarked exports + basic list
-- Pro: unlimited receipts, full analytics, clean CSV/JSON relational dump
+- Pro: unlimited receipts, full analytics, clean CSV/JSON, **IL accountant CSV** (ח.פ. / VAT / lines / discounts)
+- Analytics: spend by store/product/period + **price history by barcode**
 - DEBUG unlock toggle in Settings (debug builds)
+
+## Proof (Super-Pharm Bilu)
+
+Unit test `superPharmBiluRealOcrFile_parsesGroundTruth` loads real Tesseract `heb+eng` OCR from
+`testdata/superpharm_bilu_real.ocr.txt` (photo: `testdata/superpharm_bilu_real.jpg`, upright = rotate 270°)
+and asserts ground truth: 2 items (NICOTINELL 152.57, Lily PURE 35.90), coupon −17, total 171.47 ILS,
+VAT 26.16, receipt 8661758, ח.פ. 514203975.
+
+```bash
+./gradlew testDebugUnitTest assembleDebug
+```
 
 ## Schema (Room)
 
 | Entity | Purpose |
 |--------|---------|
-| `Company` | Legal name, brand, tax id |
+| `Company` | Legal name, brand, tax id (ח.פ.) |
 | `Store` | Branch/address/phone → Company |
-| `Receipt` | Header: datetime, number, cashier, register, currency, subtotal/tax/total, status (`PURCHASE`/`REFUND`/`VOID`), category, confidence, optional link to original receipt |
-| `Product` | Normalized catalog (barcode / SKU / name+store) |
-| `LineItem` | Product rows on a receipt |
-| `Discount` | Header or line-level amount/percent/code |
-| `Payment` | Tender method, amount, last4/auth, change |
-| `RawOcrText` | Full OCR text for audit |
-
-Refunds link to an original purchase when receipt numbers match.
-
-## Analytics (Pro)
-
-Filters: date range, store, company, category, payment method, refunds-only, period grain (day/week/month).
-
-Aggregations: total spend, avg basket, discount rate, spend by store, top products/SKUs, payment mix, period bars, top products at top store.
+| `Receipt` | Header totals / status / confidence |
+| `Product` | Normalized catalog (barcode / SKU) |
+| `LineItem` | Product rows |
+| `Discount` | Header or line-level |
+| `Payment` | Tender method |
+| `RawOcrText` | Full OCR audit |
 
 ## Build
 
@@ -46,41 +56,31 @@ echo "sdk.dir=$ANDROID_HOME" > local.properties
 ./gradlew assembleDebug
 ```
 
-APK: `app/build/outputs/apk/debug/app-debug.apk` (applicationId suffix `.debug`).
+APK: `app/build/outputs/apk/debug/app-debug.apk` (applicationId suffix `.debug`, versionName `0.1.1-debug`).
 
-## How OCR works (offline)
+### Adding more OCR languages
 
-1. Image → ML Kit on-device text recognition (no network).
-2. `ReceiptOcrParser` applies regex/heuristics for merchant, tax id, phone, dates, labeled totals, line items (qty × price), discounts, payment tenders.
-3. User reviews/edits before save.
-4. `ReceiptRepository.saveFromParse` upserts company/store/products and persists related rows + raw text.
+1. In-app: **Settings → OCR language packs → Download**
+2. Or drop `xx.traineddata` from [tessdata_fast](https://github.com/tesseract-ocr/tessdata_fast) into `app/src/main/assets/tessdata/` and rebuild
 
-Accuracy is best-effort; always editable.
+### Honest OCR limits
+
+- Thermal / blurry / extreme-angle photos still fail; user can edit before save
+- Multi-engine merge improves recall but can duplicate noisy lines — parser dedupes
+- Bundled tessdata adds ~28 MB; ML Kit script models add more native weight
+- Hebrew+English pharmacy receipts work best upright; the app tries 0/90/270/180
 
 ## Privacy
 
-Photos, OCR text, and structured data stay on the device. No accounts, no backend, no ads in v1.
-
-## Play Console checklist (`receiptbox_pro`)
-
-1. Create app with applicationId `com.receiptbox.app`.
-2. Monetize → one-time product ID **`receiptbox_pro`**, price **$9.99** (or local equivalent).
-3. Activate product; add license testers.
-4. Upload AAB signed with your upload key; enable Play Billing permission (already in manifest).
-5. Internal testing track → verify purchase + restore.
-6. Privacy policy: state on-device processing; no cloud sync of receipts.
+Photos, OCR text, and structured data stay on the device. Language-pack downloads hit GitHub raw only when the user installs extras. No accounts, no backend, no ads in v1.
 
 ## Project layout
 
 ```
 app/src/main/java/com/receiptbox/app/
   data/       Entities, DAOs, Room DB, repositories
-  ocr/        ML Kit helper + structured parser
-  export/     CSV / JSON / PDF writers
+  ocr/        OcrHelper (ML Kit + Tesseract), TessLanguagePackManager, parser
+  export/     CSV / IL accountant CSV / JSON / PDF
   billing/    Play Billing 7.x
-  ui/         Compose screens (home, capture, detail, analytics, export, …)
+  ui/         Compose screens
 ```
-
-## Out of scope (v1)
-
-Cloud sync, bank connect, live FX rates, team sharing, AdMob.

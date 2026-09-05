@@ -108,16 +108,17 @@ fun AnalyticsScreen(
                 }
             }
             val s = state.summary
+            val ccy = s.displayCurrency.ifBlank { "ILS" }
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                SummaryCard("Spend", Formatters.formatMoney(s.totalSpend, "USD"), Modifier.weight(1f))
+                SummaryCard("Spend", Formatters.formatMoney(s.totalSpend, ccy), Modifier.weight(1f))
                 SummaryCard("Receipts", s.receiptCount.toString(), Modifier.weight(1f))
             }
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                SummaryCard("Avg basket", Formatters.formatMoney(s.avgBasket, "USD"), Modifier.weight(1f))
+                SummaryCard("Avg basket", Formatters.formatMoney(s.avgBasket, ccy), Modifier.weight(1f))
                 SummaryCard("Refunds", s.refundCount.toString(), Modifier.weight(1f))
             }
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                SummaryCard("Discounts", Formatters.formatMoney(s.discountTotal, "USD"), Modifier.weight(1f))
+                SummaryCard("Discounts", Formatters.formatMoney(s.discountTotal, ccy), Modifier.weight(1f))
                 SummaryCard("Discount rate", "${"%.1f".format(s.discountRate * 100)}%", Modifier.weight(1f))
             }
 
@@ -128,9 +129,9 @@ fun AnalyticsScreen(
             s.byStore.take(10).forEach { row ->
                 RankRow(
                     title = row.storeName,
-                    subtitle = "${row.receiptCount} receipts · avg ${Formatters.formatMoney(row.avgBasket, "USD")}" +
+                    subtitle = "${row.receiptCount} receipts · avg ${Formatters.formatMoney(row.avgBasket, ccy)}" +
                         (row.companyName?.let { " · $it" } ?: ""),
-                    value = Formatters.formatMoney(row.totalSpend, "USD")
+                    value = Formatters.formatMoney(row.totalSpend, ccy)
                 )
             }
 
@@ -143,13 +144,13 @@ fun AnalyticsScreen(
                         row.sku?.let { append(" · SKU $it") }
                         row.barcode?.let { append(" · $it") }
                     },
-                    value = Formatters.formatMoney(row.totalSpend, "USD")
+                    value = Formatters.formatMoney(row.totalSpend, ccy)
                 )
             }
 
             Text("By payment method", style = MaterialTheme.typography.titleLarge)
             s.byPayment.forEach { row ->
-                RankRow(row.method, "${row.receiptCount} receipts", Formatters.formatMoney(row.totalSpend, "USD"))
+                RankRow(row.method, "${row.receiptCount} receipts", Formatters.formatMoney(row.totalSpend, ccy))
             }
 
             if (s.topProductsAtTopStore.isNotEmpty() && s.byStore.isNotEmpty()) {
@@ -158,7 +159,31 @@ fun AnalyticsScreen(
                     style = MaterialTheme.typography.titleLarge
                 )
                 s.topProductsAtTopStore.forEach { row ->
-                    RankRow(row.name, "qty ${"%.1f".format(row.quantity)}", Formatters.formatMoney(row.totalSpend, "USD"))
+                    RankRow(row.name, "qty ${"%.1f".format(row.quantity)}", Formatters.formatMoney(row.totalSpend, ccy))
+                }
+            }
+
+            if (s.barcodePriceHistory.isNotEmpty()) {
+                Text("Price history by barcode", style = MaterialTheme.typography.titleLarge)
+                Text(
+                    "Unit price over time for scanned GTINs — spot store-to-store diffs.",
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    style = MaterialTheme.typography.bodySmall
+                )
+                s.barcodePriceHistory.take(20).forEach { row ->
+                    RankRow(
+                        title = row.name,
+                        subtitle = buildString {
+                            append(row.barcode)
+                            append(" · ")
+                            append(row.sampleCount)
+                            append(" samples · min ")
+                            append(Formatters.formatMoney(row.minPrice, ccy))
+                            append(" · max ")
+                            append(Formatters.formatMoney(row.maxPrice, ccy))
+                        },
+                        value = Formatters.formatMoney(row.lastPrice, ccy)
+                    )
                 }
             }
         }

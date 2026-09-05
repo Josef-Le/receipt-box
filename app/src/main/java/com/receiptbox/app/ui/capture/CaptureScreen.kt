@@ -280,11 +280,11 @@ private fun EditStep(modifier: Modifier, state: CaptureUiState, viewModel: Captu
 
         Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             OutlinedTextField(state.amount, viewModel::updateAmount, label = { Text("Total") }, modifier = Modifier.weight(1f), singleLine = true)
-            OutlinedTextField(state.currency, viewModel::updateCurrency, label = { Text("CCY") }, modifier = Modifier.weight(0.5f), singleLine = true)
+            OutlinedTextField(state.currency, viewModel::updateCurrency, label = { Text("Currency") }, modifier = Modifier.weight(0.5f), singleLine = true)
         }
         Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             OutlinedTextField(state.subtotal, viewModel::updateSubtotal, label = { Text("Subtotal") }, modifier = Modifier.weight(1f), singleLine = true)
-            OutlinedTextField(state.tax, viewModel::updateTax, label = { Text("Tax") }, modifier = Modifier.weight(1f), singleLine = true)
+            OutlinedTextField(state.tax, viewModel::updateTax, label = { Text(if (state.currency == "ILS") "מע\"מ / VAT" else "Tax") }, modifier = Modifier.weight(1f), singleLine = true)
         }
         OutlinedTextField(
             value = dateText,
@@ -340,7 +340,7 @@ private fun EditStep(modifier: Modifier, state: CaptureUiState, viewModel: Captu
                     Column(Modifier.padding(12.dp)) {
                         Text(item.name, style = MaterialTheme.typography.titleMedium)
                         Text(
-                            "qty ${item.quantity} · unit ${item.unitPrice ?: "-"} · total ${"%.2f".format(item.lineTotal)}" +
+                            "qty ${item.quantity} · unit ${item.unitPrice?.let { Formatters.formatMoney(it, state.currency.ifBlank { "ILS" }) } ?: "-"} · total ${Formatters.formatMoney(item.lineTotal, state.currency.ifBlank { "ILS" })}" +
                                 (item.sku?.let { " · SKU $it" } ?: "") +
                                 (item.barcode?.let { " · GTIN $it" } ?: ""),
                             style = MaterialTheme.typography.bodySmall,
@@ -360,7 +360,7 @@ private fun EditStep(modifier: Modifier, state: CaptureUiState, viewModel: Captu
                         Text(d.description ?: "Discount", style = MaterialTheme.typography.titleMedium)
                         Text(
                             listOfNotNull(
-                                d.amount?.let { "amount ${"%.2f".format(it)}" },
+                                d.amount?.let { Formatters.formatMoney(it, state.currency.ifBlank { "ILS" }) },
                                 d.percent?.let { "${it}%" },
                                 d.code?.let { "code $it" }
                             ).joinToString(" · "),

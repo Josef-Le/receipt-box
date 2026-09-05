@@ -14,3 +14,8 @@
 
 # Keep Receipt entity fields
 -keepclassmembers class com.receiptbox.app.data.Receipt { *; }
+
+# Tesseract / tess-two JNI
+-keep class com.googlecode.tesseract.** { *; }
+-keep class com.googlecode.leptonica.** { *; }
+-dontwarn com.googlecode.tesseract.**

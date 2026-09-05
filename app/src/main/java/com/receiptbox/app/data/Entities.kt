@@ -264,6 +264,26 @@ data class PaymentSpend(
     val receiptCount: Int
 )
 
+data class BarcodePricePoint(
+    val barcode: String,
+    val name: String,
+    val datetime: Long,
+    val unitPrice: Double,
+    val lineTotal: Double,
+    val storeName: String?,
+    val currency: String
+)
+
+data class BarcodePriceHistory(
+    val barcode: String,
+    val name: String,
+    val points: List<BarcodePricePoint>,
+    val minPrice: Double,
+    val maxPrice: Double,
+    val lastPrice: Double,
+    val sampleCount: Int
+)
+
 data class AnalyticsSummary(
     val receiptCount: Int = 0,
     val totalSpend: Double = 0.0,
@@ -275,7 +295,10 @@ data class AnalyticsSummary(
     val byProduct: List<ProductSpend> = emptyList(),
     val byPeriod: List<PeriodSpend> = emptyList(),
     val byPayment: List<PaymentSpend> = emptyList(),
-    val topProductsAtTopStore: List<ProductSpend> = emptyList()
+    val topProductsAtTopStore: List<ProductSpend> = emptyList(),
+    val barcodePriceHistory: List<BarcodePriceHistory> = emptyList(),
+    /** Dominant currency in filtered receipts — never assume USD for IL data. */
+    val displayCurrency: String = "ILS"
 )
 
 data class ReceiptDetail(

@@ -105,6 +105,15 @@ fun ExportScreen(
             ) { Text("Export relational CSV") }
             Button(
                 onClick = {
+                    if (!state.prefs.hasPro) onPaywall() else viewModel.exportAccountantCsv(context)
+                },
+                enabled = !state.busy,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(if (state.prefs.hasPro) "Export IL accountant CSV (ח.פ. / VAT)" else "IL accountant CSV (Pro)")
+            }
+            Button(
+                onClick = {
                     if (!state.prefs.hasPro) onPaywall() else viewModel.exportJson(context)
                 },
                 enabled = !state.busy,

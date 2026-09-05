@@ -324,4 +324,26 @@ interface AnalyticsDao {
     suspend fun filteredReceipts(
         from: Long, to: Long, storeId: Long?, companyId: Long?, status: String?, category: String?
     ): List<Receipt>
+
+    @Query(
+        """
+        SELECT li.barcode AS barcode,
+               li.name AS name,
+               r.datetime AS datetime,
+               li.unitPrice AS unitPrice,
+               li.lineTotal AS lineTotal,
+               ifnull(s.name, r.merchantDisplay) AS storeName,
+               r.currency AS currency
+        FROM line_items li
+        INNER JOIN receipts r ON r.id = li.receiptId
+        LEFT JOIN stores s ON s.id = r.storeId
+        WHERE r.datetime BETWEEN :from AND :to
+          AND r.status = 'PURCHASE'
+          AND li.barcode IS NOT NULL
+          AND length(li.barcode) >= 8
+          AND (:storeId IS NULL OR r.storeId = :storeId)
+        ORDER BY li.barcode ASC, r.datetime ASC
+        """
+    )
+    suspend fun priceHistoryByBarcode(from: Long, to: Long, storeId: Long?): List<BarcodePricePoint>
 }

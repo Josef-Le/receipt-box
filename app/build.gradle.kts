@@ -13,8 +13,8 @@ android {
         applicationId = "com.receiptbox.app"
         minSdk = 26
         targetSdk = 35
-        versionCode = 1
-        versionName = "1.0.0"
+        versionCode = 2
+        versionName = "0.1.1"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables { useSupportLibrary = true }
     }
@@ -45,6 +45,7 @@ android {
     }
     packaging {
         resources { excludes += "/META-INF/{AL2.0,LGPL2.1}" }
+        jniLibs { useLegacyPackaging = true }
     }
 }
 
@@ -81,8 +82,15 @@ dependencies {
     implementation("androidx.camera:camera-lifecycle:$camerax")
     implementation("androidx.camera:camera-view:$camerax")
 
-    // ML Kit Text Recognition (on-device)
+    // ML Kit — Latin + CJK + Devanagari (merge non-empty with Tesseract)
     implementation("com.google.mlkit:text-recognition:16.0.1")
+    implementation("com.google.mlkit:text-recognition-chinese:16.0.1")
+    implementation("com.google.mlkit:text-recognition-japanese:16.0.1")
+    implementation("com.google.mlkit:text-recognition-korean:16.0.1")
+    implementation("com.google.mlkit:text-recognition-devanagari:16.0.1")
+
+    // Tesseract 5 + tessdata_fast packs in assets/tessdata (~28 MB default pack)
+    implementation("cz.adaptech.tesseract4android:tesseract4android:4.9.0")
 
     // Coil for images
     implementation("io.coil-kt:coil-compose:2.7.0")

@@ -55,6 +55,10 @@ class ExportViewModel(
         ExportWriter.writeRelationalCsv(context, bundle, wm)
     }
 
+    fun exportAccountantCsv(context: Context) = runExport(context, "text/csv") { bundle, wm ->
+        ExportWriter.writeAccountantCsv(context, bundle, wm)
+    }
+
     fun exportJson(context: Context) = runExport(context, "application/json") { bundle, wm ->
         ExportWriter.writeJson(context, bundle, wm)
     }

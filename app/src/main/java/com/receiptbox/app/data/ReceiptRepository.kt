@@ -291,11 +291,32 @@ class ReceiptRepository(private val db: ReceiptDatabase) {
             lines.productSpend(from, to, topStoreId, 10)
         } else emptyList()
 
+        val barcodePoints = analytics.priceHistoryByBarcode(from, to, storeId)
+        val barcodePriceHistory = barcodePoints
+            .groupBy { it.barcode }
+            .map { (barcode, pts) ->
+                val prices = pts.map { it.unitPrice }
+                BarcodePriceHistory(
+                    barcode = barcode,
+                    name = pts.last().name,
+                    points = pts,
+                    minPrice = prices.minOrNull() ?: 0.0,
+                    maxPrice = prices.maxOrNull() ?: 0.0,
+                    lastPrice = pts.last().unitPrice,
+                    sampleCount = pts.size
+                )
+            }
+            .sortedByDescending { it.sampleCount }
+            .take(40)
+
         val purchaseCount = receiptRows.count { it.status == ReceiptStatus.PURCHASE.name }
         val avg = if (purchaseCount > 0) {
             receiptRows.filter { it.status == ReceiptStatus.PURCHASE.name }.sumOf { it.total } / purchaseCount
         } else 0.0
         val discountRate = if (spend > 0) discountTotal / (spend + discountTotal) else 0.0
+
+        val displayCurrency = receiptRows.groupingBy { it.currency }.eachCount()
+            .maxByOrNull { it.value }?.key ?: "ILS"
 
         return AnalyticsSummary(
             receiptCount = count,
@@ -308,7 +329,9 @@ class ReceiptRepository(private val db: ReceiptDatabase) {
             byProduct = byProduct,
             byPeriod = byPeriod,
             byPayment = byPayment,
-            topProductsAtTopStore = topProductsAtTopStore
+            topProductsAtTopStore = topProductsAtTopStore,
+            barcodePriceHistory = barcodePriceHistory,
+            displayCurrency = displayCurrency
         )
     }
 

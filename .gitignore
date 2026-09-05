@@ -17,3 +17,14 @@ bin/
 gen/
 out/
 release/
+
+.kotlin/
+testdata/*.png
+testdata/ocr_*.txt
+testdata/rot*
+testdata/o18*
+testdata/oriented*
+testdata/top.png
+testdata/mid.png
+testdata/bottom.png
+testdata/superpharm_bilu_real_pre.png

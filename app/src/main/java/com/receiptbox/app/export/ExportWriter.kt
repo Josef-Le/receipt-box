@@ -79,6 +79,70 @@ object ExportWriter {
         return file
     }
 
+    /**
+     * Israeli accountant-oriented CSV: ח.פ. / VAT / lines / discounts per receipt.
+     * UTF-8 with BOM for Excel Hebrew.
+     */
+    fun writeAccountantCsv(context: Context, bundle: ExportBundle, watermark: Boolean): File {
+        val dir = File(context.cacheDir, "exports").apply { mkdirs() }
+        val file = File(dir, "receiptbox_accountant_il_${stampFmt.format(Date())}.csv")
+        file.outputStream().use { fos ->
+            // UTF-8 BOM
+            fos.write(byteArrayOf(0xEF.toByte(), 0xBB.toByte(), 0xBF.toByte()))
+            fos.writer(Charsets.UTF_8).use { out ->
+                if (watermark) out.appendLine("# ${AppConstants.WATERMARK_TEXT}")
+                out.appendLine(
+                    listOf(
+                        "receipt_id", "datetime", "merchant", "store", "company", "tax_id_hp",
+                        "receipt_number", "currency", "subtotal", "vat", "total",
+                        "line_pos", "line_name", "line_barcode", "qty", "unit_price", "line_total",
+                        "discount_desc", "discount_amount", "payment_method", "payment_amount"
+                    ).joinToString(",")
+                )
+                bundle.details.forEach { d ->
+                    val r = d.receipt
+                    val base = listOf(
+                        r.id.toString(),
+                        dateFmt.format(Date(r.datetime)),
+                        csv(r.merchantDisplay),
+                        csv(d.store?.name),
+                        csv(d.company?.legalName),
+                        csv(d.company?.taxId),
+                        csv(r.receiptNumber),
+                        r.currency,
+                        r.subtotal.toString(),
+                        r.tax.toString(),
+                        r.total.toString()
+                    )
+                    val lineRows = d.lineItems.ifEmpty { listOf(null) }
+                    val maxRows = maxOf(lineRows.size, d.discounts.size.coerceAtLeast(1), d.payments.size.coerceAtLeast(1))
+                    for (i in 0 until maxRows) {
+                        val li = d.lineItems.getOrNull(i)
+                        val disc = d.discounts.getOrNull(i)
+                        val pay = d.payments.getOrNull(i)
+                        out.appendLine(
+                            (
+                                base + listOf(
+                                    li?.position?.toString().orEmpty(),
+                                    csv(li?.name),
+                                    csv(li?.barcode),
+                                    li?.quantity?.toString().orEmpty(),
+                                    li?.unitPrice?.toString().orEmpty(),
+                                    li?.lineTotal?.toString().orEmpty(),
+                                    csv(disc?.description),
+                                    disc?.amount?.toString().orEmpty(),
+                                    csv(pay?.method),
+                                    pay?.amount?.toString().orEmpty()
+                                )
+                            ).joinToString(",")
+                        )
+                    }
+                }
+            }
+        }
+        return file
+    }
+
     fun writeJson(context: Context, bundle: ExportBundle, watermark: Boolean): File {
         val dir = File(context.cacheDir, "exports").apply { mkdirs() }
         val file = File(dir, "receiptbox_dump_${stampFmt.format(Date())}.json")

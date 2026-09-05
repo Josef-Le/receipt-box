@@ -31,7 +31,7 @@ data class CaptureUiState(
     val amount: String = "",
     val subtotal: String = "",
     val tax: String = "",
-    val currency: String = "USD",
+    val currency: String = "ILS",
     val dateMillis: Long = System.currentTimeMillis(),
     val category: String = "Uncategorized",
     val notes: String = "",
