@@ -117,7 +117,7 @@ fun SettingsScreen(
                 "Hebrew is first-class: Tesseract eng+heb ships in the APK (~5 MB). " +
                     "ML Kit Latin alone is insufficient (mojibake on Hebrew). Bundled: " +
                     TessLanguagePackManager.BUNDLED_CODES.joinToString(", ") +
-                    ". Optional packs download from tessdata_fast into app private storage.",
+                    ". Default pack (~28 MB) includes eng+heb+ara+rus+deu+fra+spa+por+ita+tur+pol. Download more from tessdata_fast.",
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 style = MaterialTheme.typography.bodySmall
             )
