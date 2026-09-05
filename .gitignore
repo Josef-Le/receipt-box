@@ -45,3 +45,8 @@ testdata/*.png
 testdata/corpus/downloads/
 testdata/corpus/harness/*.jar
 testdata/corpus/harness/*.class
+
+testdata/corpus/harness/ReceiptOcrParser.kt
+testdata/corpus/harness/StructuredModels.kt
+testdata/corpus/analysis_summary.json
+testdata/corpus/examples_*.json
