@@ -3,7 +3,7 @@
 Snap receipts → **multilingual on-device OCR** → structured relational expense data → analytics + CSV/JSON/PDF export for accountants.
 
 **applicationId:** `com.receiptbox.app`  
-**Version:** 0.1.1  
+**Version:** 0.1.3  
 **Monetization:** one-time Play product `receiptbox_pro` ($9.99)
 
 ## Features
@@ -20,6 +20,7 @@ Snap receipts → **multilingual on-device OCR** → structured relational expen
 - Room database with FKs + indices
 - Free: max **15** receipts + watermarked exports + basic list
 - Pro: unlimited receipts, full analytics, clean CSV/JSON, **IL accountant CSV** (ח.פ. / VAT / lines / discounts)
+- Home **global search** (merchant / company / tax id / receipt # / product / barcode / notes)
 - Analytics: spend by store/product/period + **price history by barcode**
 - DEBUG unlock toggle in Settings (debug builds)
 
@@ -56,7 +57,7 @@ echo "sdk.dir=$ANDROID_HOME" > local.properties
 ./gradlew assembleDebug
 ```
 
-APK: `app/build/outputs/apk/debug/app-debug.apk` (applicationId suffix `.debug`, versionName `0.1.1-debug`).
+APK: `app/build/outputs/apk/debug/app-debug.apk` (applicationId suffix `.debug`, versionName `0.1.3-debug`).
 
 ### Adding more OCR languages
 

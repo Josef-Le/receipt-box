@@ -104,6 +104,7 @@ fun DetailScreen(
                     r.registerId?.let { Meta("Register", it) }
                     d.store?.let {
                         Meta("Store", it.name)
+                        it.branch?.let { b -> Meta("Branch", b) }
                         it.address?.let { a -> Meta("Address", a) }
                         it.phone?.let { p -> Meta("Phone", p) }
                     }
@@ -125,10 +126,25 @@ fun DetailScreen(
                             Column(Modifier.padding(12.dp)) {
                                 Text(item.name, fontWeight = FontWeight.SemiBold)
                                 Text(
-                                    "qty ${item.quantity} × ${item.unitPrice ?: "-"} = ${"%.2f".format(item.lineTotal)}",
+                                    buildString {
+                                        append("qty ${item.quantity}")
+                                        item.unit?.let { append(" $it") }
+                                        append(" × ${item.unitPrice ?: "-"} = ${"%.2f".format(item.lineTotal)}")
+                                    },
                                     style = MaterialTheme.typography.bodyMedium,
                                     color = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
+                                val ids = listOfNotNull(
+                                    item.barcode?.let { "barcode $it" },
+                                    item.sku?.let { "sku $it" }
+                                )
+                                if (ids.isNotEmpty()) {
+                                    Text(
+                                        ids.joinToString(" · "),
+                                        style = MaterialTheme.typography.bodySmall,
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                                    )
+                                }
                             }
                         }
                     }

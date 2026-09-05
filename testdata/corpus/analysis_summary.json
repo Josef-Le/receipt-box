@@ -1,0 +1,47 @@
+{
+  "n": 102,
+  "total_present_pct": 72.54901960784314,
+  "items_pct": 57.84313725490196,
+  "currency": {
+    "GBP": 1,
+    "USD": 86,
+    "IDR": 9,
+    "ILS": 4,
+    "EUR": 2
+  },
+  "by_source": {
+    "cord": {
+      "n": 45,
+      "total_pct": 60.0,
+      "items_pct": 37.77777777777778,
+      "currency": {
+        "GBP": 1,
+        "USD": 32,
+        "IDR": 9,
+        "ILS": 2,
+        "EUR": 1
+      }
+    },
+    "local": {
+      "n": 2,
+      "total_pct": 100.0,
+      "items_pct": 100.0,
+      "currency": {
+        "ILS": 2
+      }
+    },
+    "srd": {
+      "n": 55,
+      "total_pct": 81.81818181818181,
+      "items_pct": 72.72727272727273,
+      "currency": {
+        "USD": 54,
+        "EUR": 1
+      }
+    }
+  },
+  "ocr_tiny": 3,
+  "no_total": 28,
+  "no_items": 43,
+  "mean_conf": 0.6721133056862745
+}

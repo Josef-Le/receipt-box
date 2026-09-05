@@ -1,0 +1,13 @@
+y
+Um's RESTAURANT
+6 Walk_in
+s 347
+Food Subtoial: 20:78
+Boy Subtotal 0.00
+Food Tox 1.25
+Bortax 000
+Total: 22.03
+Received: 2203
+Cliange, 0.09
+, PAID Cash .
+Thank You

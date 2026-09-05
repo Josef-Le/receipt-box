@@ -1,0 +1,716 @@
+[
+  {
+    "file": "srd_000.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "c25ea6181837f1262fe16c4b9682e489",
+    "orig": "srd/1000-receipt.jpg"
+  },
+  {
+    "file": "srd_001.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "e666442d3a55672fb858f6c84114337f",
+    "orig": "srd/1001-receipt.jpg"
+  },
+  {
+    "file": "srd_002.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "2bd17b3abb14848053861e446d0ab6a2",
+    "orig": "srd/1002-receipt.jpg"
+  },
+  {
+    "file": "srd_003.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "52937cab318c338796bd997cc0be17b9",
+    "orig": "srd/1003-receipt.jpg"
+  },
+  {
+    "file": "srd_004.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "3f7635d8d1a14e2398a90560123d621a",
+    "orig": "srd/1004-receipt.jpg"
+  },
+  {
+    "file": "srd_005.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "4328ec7a10399808da609da70591b398",
+    "orig": "srd/1005-receipt.jpg"
+  },
+  {
+    "file": "srd_006.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "73b18c99a5f2c07e0d64f32daa6e795f",
+    "orig": "srd/1006-receipt.jpg"
+  },
+  {
+    "file": "srd_007.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "181b06583fef6b5ae82f0c6d1ac7833d",
+    "orig": "srd/1007-receipt.jpg"
+  },
+  {
+    "file": "srd_008.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "d2ccfe2b736ab933ad3daf0f31c3e44b",
+    "orig": "srd/1008-receipt.jpg"
+  },
+  {
+    "file": "srd_009.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "b671f1e91d09107c6491844670639f52",
+    "orig": "srd/1009-receipt.jpg"
+  },
+  {
+    "file": "srd_010.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "eb060dbefdedd4b00645144b921f6440",
+    "orig": "srd/1010-receipt.jpg"
+  },
+  {
+    "file": "srd_011.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "ba313f55c9bd19c9dec1c9b985c027e9",
+    "orig": "srd/1011-receipt.jpg"
+  },
+  {
+    "file": "srd_012.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "44a45686d8ad41db3235d7af0282f52c",
+    "orig": "srd/1012-receipt.jpg"
+  },
+  {
+    "file": "srd_013.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "f31fb78748a892cc97db68dfdd1c4089",
+    "orig": "srd/1013-receipt.jpg"
+  },
+  {
+    "file": "srd_014.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "55b502a303912ba046c084a3d02afd41",
+    "orig": "srd/1014-receipt.jpg"
+  },
+  {
+    "file": "srd_015.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "289a2aec2ad151e92084b3816cd29e5a",
+    "orig": "srd/1015-receipt.jpg"
+  },
+  {
+    "file": "srd_016.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "7be158e8183a44bc4a1c3d414df0c678",
+    "orig": "srd/1016-receipt.jpg"
+  },
+  {
+    "file": "srd_017.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "30f9751a25fb3204134fb14e19f03459",
+    "orig": "srd/1017-receipt.jpg"
+  },
+  {
+    "file": "srd_018.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "1a18dadd1013bda1054daf172c574143",
+    "orig": "srd/1018-receipt.jpg"
+  },
+  {
+    "file": "srd_019.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "80011718a0ef1593c7bc4e5db820a64c",
+    "orig": "srd/1019-receipt.jpg"
+  },
+  {
+    "file": "srd_020.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "d792266ac1d07f17e86f3fc6a7df7ea8",
+    "orig": "srd/1020-receipt.jpg"
+  },
+  {
+    "file": "srd_021.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "747ada9d37a92e7ec75e7a83f964a5fc",
+    "orig": "srd/1021-receipt.jpg"
+  },
+  {
+    "file": "srd_022.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "86f3c6f2c9c0cc52dfafb6275421bfc0",
+    "orig": "srd/1022-receipt.jpg"
+  },
+  {
+    "file": "srd_023.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "82e0c56830d1776ab1dfbc577fd52a26",
+    "orig": "srd/1023-receipt.jpg"
+  },
+  {
+    "file": "srd_024.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "a8156efe9e376e7e3833b3d40d70cc76",
+    "orig": "srd/1024-receipt.jpg"
+  },
+  {
+    "file": "srd_025.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "dffd573fc0e1ec648e54774bd17e49be",
+    "orig": "srd/1025-receipt.jpg"
+  },
+  {
+    "file": "srd_026.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "7a365b839a27fd06bb22eca466320d7e",
+    "orig": "srd/1026-receipt.jpg"
+  },
+  {
+    "file": "srd_027.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "ea9b1f192d32d5a6ff508f841a874bfe",
+    "orig": "srd/1027-receipt.jpg"
+  },
+  {
+    "file": "srd_028.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "81a6af2532ffaf43c3c362eb8317b706",
+    "orig": "srd/1028-receipt.jpg"
+  },
+  {
+    "file": "srd_029.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "efc0a57bc564787cef61e1728ef20a7a",
+    "orig": "srd/1029-receipt.jpg"
+  },
+  {
+    "file": "srd_030.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "02af4621753d931790ac70682755c884",
+    "orig": "srd/1030-receipt.jpg"
+  },
+  {
+    "file": "srd_031.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "6a2e702fa2658c39f761685d405e51b3",
+    "orig": "srd/1031-receipt.jpg"
+  },
+  {
+    "file": "srd_032.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "47cc0e4546ca1fd0273672cd5cd579ca",
+    "orig": "srd/1032-receipt.jpg"
+  },
+  {
+    "file": "srd_033.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "a6983900078fc036001364d10c5158c4",
+    "orig": "srd/1033-receipt.jpg"
+  },
+  {
+    "file": "srd_034.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "4111e9d537edb38c2d7e0ecfe19e9010",
+    "orig": "srd/1034-receipt.jpg"
+  },
+  {
+    "file": "srd_035.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "bac00e1d3aca3c0effa7f830eeb1e1c0",
+    "orig": "srd/1035-receipt.jpg"
+  },
+  {
+    "file": "srd_036.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "92d916dd5f3b6a155e5ed308f010e519",
+    "orig": "srd/1036-receipt.jpg"
+  },
+  {
+    "file": "srd_037.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "08daebece3e1a888cfd83dd87f7162b3",
+    "orig": "srd/1037-receipt.jpg"
+  },
+  {
+    "file": "srd_038.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "370eb005a894fe6d4d16f8e86302bcca",
+    "orig": "srd/1038-receipt.jpg"
+  },
+  {
+    "file": "srd_039.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "597bbc6c4dc8036e04e7a63b05a8ba9c",
+    "orig": "srd/1039-receipt.jpg"
+  },
+  {
+    "file": "srd_040.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "5100a368122ea20db2197aeda43f1a67",
+    "orig": "srd/1040-receipt.jpg"
+  },
+  {
+    "file": "srd_041.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "4111e9d537edb38c2d7e0ecfe19e9010",
+    "orig": "srd/1041-receipt.jpg"
+  },
+  {
+    "file": "srd_042.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "0bc42788ea9c1345037294573a433988",
+    "orig": "srd/1042-receipt.jpg"
+  },
+  {
+    "file": "srd_043.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "bae7bd3f54db357d2f2b0ab36f284de9",
+    "orig": "srd/1043-receipt.jpg"
+  },
+  {
+    "file": "srd_044.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "30603acaa527a99e4ed664a7cfbed23f",
+    "orig": "srd/1044-receipt.jpg"
+  },
+  {
+    "file": "srd_045.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "1995c6b9b84af60d57266b25178f6ab7",
+    "orig": "srd/1045-receipt.jpg"
+  },
+  {
+    "file": "srd_046.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "0d6ade6b5004066b9d5bc6f762bae3e6",
+    "orig": "srd/1046-receipt.jpg"
+  },
+  {
+    "file": "srd_047.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "92c54d50d21e9d9769bea146ee206e71",
+    "orig": "srd/1047-receipt.jpg"
+  },
+  {
+    "file": "srd_048.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "5cb662e5b0fbddd0e12fdb4abc71e9f8",
+    "orig": "srd/1048-receipt.jpg"
+  },
+  {
+    "file": "srd_049.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "49da002cfda23e4a5584d1fb65e3cdc9",
+    "orig": "srd/1049-receipt.jpg"
+  },
+  {
+    "file": "srd_050.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "154bd4e1a8766ce86c5e5e1e7ad35e0d",
+    "orig": "srd/1050-receipt.jpg"
+  },
+  {
+    "file": "srd_051.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "b73014ed1ae02e577832742766a26b3a",
+    "orig": "srd/1051-receipt.jpg"
+  },
+  {
+    "file": "srd_052.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "32b2f2d6e5a77b407c412177f27b0665",
+    "orig": "srd/1052-receipt.jpg"
+  },
+  {
+    "file": "srd_053.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "88bb39d1a3aa00f0389d33250725cbab",
+    "orig": "srd/1053-receipt.jpg"
+  },
+  {
+    "file": "srd_054.jpg",
+    "source": "ExpressExpense SRD https://expressexpense.com/blog/free-receipt-images-ocr-machine-learning-dataset/",
+    "license": "MIT",
+    "md5": "c55179eefee99f71e2738b1f56df2702",
+    "orig": "srd/1054-receipt.jpg"
+  },
+  {
+    "file": "cord_000.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "de6b5fdba76b2f70984e90ea8ab0250f",
+    "orig": "cord-test/cord-test-0000.jpg"
+  },
+  {
+    "file": "cord_001.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "76f805366368167ce8dd6960cc76bc68",
+    "orig": "cord-test/cord-test-0001.jpg"
+  },
+  {
+    "file": "cord_002.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "f6d087f7b364398fb5ee795bbfb37b17",
+    "orig": "cord-test/cord-test-0002.jpg"
+  },
+  {
+    "file": "cord_003.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "459ee1cf35cd889875e6802a1d48b158",
+    "orig": "cord-test/cord-test-0003.jpg"
+  },
+  {
+    "file": "cord_004.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "65b5f4fd039f71f727523a11043984e9",
+    "orig": "cord-test/cord-test-0004.jpg"
+  },
+  {
+    "file": "cord_005.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "711e6e46678dded0311503b5699037c9",
+    "orig": "cord-test/cord-test-0005.jpg"
+  },
+  {
+    "file": "cord_006.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "dc2f29df6dc92a89cd3fada769f76496",
+    "orig": "cord-test/cord-test-0006.jpg"
+  },
+  {
+    "file": "cord_007.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "e1e123d7ee4e5669a85cfb833d51ecaf",
+    "orig": "cord-test/cord-test-0007.jpg"
+  },
+  {
+    "file": "cord_008.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "c90225b13070a72911ec635b54879892",
+    "orig": "cord-test/cord-test-0008.jpg"
+  },
+  {
+    "file": "cord_009.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "a2449002c09980535bb27c0da8fae6aa",
+    "orig": "cord-test/cord-test-0009.jpg"
+  },
+  {
+    "file": "cord_010.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "a01829149704ed8f8df32cf2a5fcac4c",
+    "orig": "cord-test/cord-test-0010.jpg"
+  },
+  {
+    "file": "cord_011.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "db7a9751302f35a2b1a65633934575c5",
+    "orig": "cord-test/cord-test-0011.jpg"
+  },
+  {
+    "file": "cord_012.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "255c6fc9bc52fa78a3b2b7f0ccc036af",
+    "orig": "cord-test/cord-test-0012.jpg"
+  },
+  {
+    "file": "cord_013.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "eec85b6cb96270d321e7f8219b536883",
+    "orig": "cord-test/cord-test-0013.jpg"
+  },
+  {
+    "file": "cord_014.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "a6a1aeee7992a589d81c20cd584a9302",
+    "orig": "cord-test/cord-test-0014.jpg"
+  },
+  {
+    "file": "cord_015.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "2d862f0e2c3d686e9b7f0115e5a8fd9f",
+    "orig": "cord-test/cord-test-0015.jpg"
+  },
+  {
+    "file": "cord_016.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "d50cf59ef1e17508bef8a1b98d7b0f4b",
+    "orig": "cord-test/cord-test-0016.jpg"
+  },
+  {
+    "file": "cord_017.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "64fca361398ebe3e95164a30d62666e1",
+    "orig": "cord-test/cord-test-0017.jpg"
+  },
+  {
+    "file": "cord_018.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "16c1df07655a269c9b960527baabb54b",
+    "orig": "cord-test/cord-test-0018.jpg"
+  },
+  {
+    "file": "cord_019.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "5a0bde73fca64860ecef553fed684d11",
+    "orig": "cord-test/cord-test-0019.jpg"
+  },
+  {
+    "file": "cord_020.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "72c3a457f6c9fdaacf4c5994033d857e",
+    "orig": "cord-test/cord-test-0020.jpg"
+  },
+  {
+    "file": "cord_021.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "1154c3acc4cb54752cb6fa8de07e2ca3",
+    "orig": "cord-test/cord-test-0021.jpg"
+  },
+  {
+    "file": "cord_022.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "1648da3f535db04c3cbf3e23edb1d351",
+    "orig": "cord-test/cord-test-0022.jpg"
+  },
+  {
+    "file": "cord_023.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "55fd9f2f4dd878acebff535076fffdba",
+    "orig": "cord-test/cord-test-0023.jpg"
+  },
+  {
+    "file": "cord_024.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "3dbb8a5f586a6a09e5b1af1a3bbeccd1",
+    "orig": "cord-test/cord-test-0024.jpg"
+  },
+  {
+    "file": "cord_025.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "8de68f3d930e86c299c403e3cb1123de",
+    "orig": "cord-test/cord-test-0025.jpg"
+  },
+  {
+    "file": "cord_026.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "1bacdab905d43b0487d421ae685fd120",
+    "orig": "cord-test/cord-test-0026.jpg"
+  },
+  {
+    "file": "cord_027.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "f08b352b4bd9829730d7ac86d23e7cd3",
+    "orig": "cord-test/cord-test-0027.jpg"
+  },
+  {
+    "file": "cord_028.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "65ce48bebd4a741eeceefede0ca1fbc5",
+    "orig": "cord-test/cord-test-0028.jpg"
+  },
+  {
+    "file": "cord_029.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "dc43185a4a1abc987eb08ac97c90668a",
+    "orig": "cord-test/cord-test-0029.jpg"
+  },
+  {
+    "file": "cord_030.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "05da16c266e473b9ad757cf20f141759",
+    "orig": "cord-test/cord-test-0030.jpg"
+  },
+  {
+    "file": "cord_031.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "5f8dbfc0be93f644a18b257bdd43f991",
+    "orig": "cord-test/cord-test-0031.jpg"
+  },
+  {
+    "file": "cord_032.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "f97b32995c7306687a81eba84a6aace4",
+    "orig": "cord-test/cord-test-0032.jpg"
+  },
+  {
+    "file": "cord_033.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "6b290ce19f5e672aedbf7eb6e448789c",
+    "orig": "cord-test/cord-test-0033.jpg"
+  },
+  {
+    "file": "cord_034.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "13171beedbfa6fa0b03312f121cac1a3",
+    "orig": "cord-test/cord-test-0034.jpg"
+  },
+  {
+    "file": "cord_035.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "3bb9bb5d1ec30adc92c6766cd1df2f04",
+    "orig": "cord-test/cord-test-0035.jpg"
+  },
+  {
+    "file": "cord_036.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "c10b06c609a15426b506b65cd56f4a18",
+    "orig": "cord-test/cord-test-0036.jpg"
+  },
+  {
+    "file": "cord_037.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "3bd13706d63c09e89e60b9c3607d3c39",
+    "orig": "cord-test/cord-test-0037.jpg"
+  },
+  {
+    "file": "cord_038.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "fb974385db771ddfa5c032da5f20fb3f",
+    "orig": "cord-test/cord-test-0038.jpg"
+  },
+  {
+    "file": "cord_039.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "8cedfc522460ed868fc11f06927d9b20",
+    "orig": "cord-test/cord-test-0039.jpg"
+  },
+  {
+    "file": "cord_040.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "97f05249449f5bd9fd836caf8fde509a",
+    "orig": "cord-test/cord-test-0040.jpg"
+  },
+  {
+    "file": "cord_041.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "c994cc897b2af2349008fab4e9bbffe7",
+    "orig": "cord-test/cord-test-0041.jpg"
+  },
+  {
+    "file": "cord_042.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "4fe9eea22306293db749afda8ec86a80",
+    "orig": "cord-test/cord-test-0042.jpg"
+  },
+  {
+    "file": "cord_043.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "970670f25b05fc48f98950e58be3209e",
+    "orig": "cord-test/cord-test-0043.jpg"
+  },
+  {
+    "file": "cord_044.jpg",
+    "source": "CORD (NAVER Clova) via Heliosoph/CORD HF https://huggingface.co/datasets/Heliosoph/CORD",
+    "license": "CC-BY-4.0",
+    "md5": "f9691bad015edede311a21c6cc12755d",
+    "orig": "cord-test/cord-test-0044.jpg"
+  },
+  {
+    "file": "local_superpharm_bilu_real.jpg",
+    "source": "local project testdata (user-captured / preprocess)",
+    "license": "project-internal",
+    "md5": "f5c04e44459d5fb3b52968ae535f1e13",
+    "orig": "superpharm_bilu_real.jpg"
+  },
+  {
+    "file": "local_oriented_up.png",
+    "source": "local project testdata (user-captured / preprocess)",
+    "license": "project-internal",
+    "md5": "26192faf75b6b5b5a8312f9892714cda",
+    "orig": "oriented_up.png"
+  }
+]

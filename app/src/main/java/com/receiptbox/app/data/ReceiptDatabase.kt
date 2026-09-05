@@ -16,7 +16,7 @@ import androidx.room.RoomDatabase
         Payment::class,
         RawOcrText::class
     ],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 abstract class ReceiptDatabase : RoomDatabase() {

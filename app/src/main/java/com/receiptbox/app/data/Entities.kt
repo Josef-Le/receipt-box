@@ -25,7 +25,7 @@ data class Company(
             onDelete = ForeignKey.SET_NULL
         )
     ],
-    indices = [Index("companyId"), Index("name"), Index("phone")]
+    indices = [Index("companyId"), Index("name"), Index("phone"), Index("branch")]
 )
 data class Store(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
@@ -33,6 +33,8 @@ data class Store(
     val name: String,
     val address: String? = null,
     val phone: String? = null,
+    /** Branch / סניף code when present on the receipt. */
+    val branch: String? = null,
     val createdAt: Long = System.currentTimeMillis()
 )
 
@@ -130,6 +132,8 @@ data class LineItem(
     val sku: String? = null,
     val barcode: String? = null,
     val quantity: Double = 1.0,
+    /** Unit of measure when known (kg, ea, pcs, יח, …). */
+    val unit: String? = null,
     val unitPrice: Double? = null,
     val lineTotal: Double = 0.0,
     val taxFlag: String? = null,

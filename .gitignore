@@ -40,3 +40,8 @@ testdata/ocr_*.txt
 testdata/*.png
 !testdata/superpharm_bilu_real_pre.png
 .kotlin/
+
+# Corpus heavy downloads / zip caches (keep images+ocr+reports in repo)
+testdata/corpus/downloads/
+testdata/corpus/harness/*.jar
+testdata/corpus/harness/*.class

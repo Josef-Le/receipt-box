@@ -13,6 +13,9 @@ interface CompanyDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(company: Company): Long
 
+    @Update
+    suspend fun update(company: Company)
+
     @Query("SELECT * FROM companies WHERE id = :id")
     suspend fun getById(id: Long): Company?
 
@@ -139,6 +142,47 @@ interface ReceiptDao {
 
     @Query("SELECT * FROM receipts WHERE datetime BETWEEN :from AND :to ORDER BY datetime ASC")
     suspend fun getInRange(from: Long, to: Long): List<Receipt>
+
+    @Query(
+        """
+        SELECT r.id, r.merchantDisplay, r.total, r.currency, r.datetime, r.category, r.status,
+               s.name AS storeName, c.legalName AS companyName,
+               (SELECT p.method FROM payments p WHERE p.receiptId = r.id LIMIT 1) AS paymentMethod
+        FROM receipts r
+        LEFT JOIN stores s ON s.id = r.storeId
+        LEFT JOIN companies c ON c.id = s.companyId
+        ORDER BY r.datetime DESC, r.createdAt DESC
+        """
+    )
+    suspend fun listAll(): List<ReceiptListItem>
+
+    @Query(
+        """
+        SELECT DISTINCT r.id, r.merchantDisplay, r.total, r.currency, r.datetime, r.category, r.status,
+               s.name AS storeName, c.legalName AS companyName,
+               (SELECT p.method FROM payments p WHERE p.receiptId = r.id LIMIT 1) AS paymentMethod
+        FROM receipts r
+        LEFT JOIN stores s ON s.id = r.storeId
+        LEFT JOIN companies c ON c.id = s.companyId
+        LEFT JOIN line_items li ON li.receiptId = r.id
+        WHERE r.merchantDisplay LIKE '%' || :query || '%' COLLATE NOCASE
+           OR ifnull(r.receiptNumber,'') LIKE '%' || :query || '%' COLLATE NOCASE
+           OR ifnull(r.notes,'') LIKE '%' || :query || '%' COLLATE NOCASE
+           OR ifnull(r.cashier,'') LIKE '%' || :query || '%' COLLATE NOCASE
+           OR ifnull(s.name,'') LIKE '%' || :query || '%' COLLATE NOCASE
+           OR ifnull(s.address,'') LIKE '%' || :query || '%' COLLATE NOCASE
+           OR ifnull(s.phone,'') LIKE '%' || :query || '%' COLLATE NOCASE
+           OR ifnull(s.branch,'') LIKE '%' || :query || '%' COLLATE NOCASE
+           OR ifnull(c.legalName,'') LIKE '%' || :query || '%' COLLATE NOCASE
+           OR ifnull(c.brand,'') LIKE '%' || :query || '%' COLLATE NOCASE
+           OR ifnull(c.taxId,'') LIKE '%' || :query || '%' COLLATE NOCASE
+           OR ifnull(li.name,'') LIKE '%' || :query || '%' COLLATE NOCASE
+           OR ifnull(li.barcode,'') LIKE '%' || :query || '%' COLLATE NOCASE
+           OR ifnull(li.sku,'') LIKE '%' || :query || '%' COLLATE NOCASE
+        ORDER BY r.datetime DESC, r.createdAt DESC
+        """
+    )
+    suspend fun search(query: String): List<ReceiptListItem>
 }
 
 @Dao

@@ -1,0 +1,19 @@
+| Dona Mercedes Restaurant \
+| 1030 1/2 San Fernando Rd E
+San Fernando CA 91341
+3 Vero
+za! CENTERI
+i 1 CHicharon $2.25 Ne
+=i 3 Pupusa Queso $6.75
+: 1 Platanos Orden $7.75
+1 Diet coke $1.50 : |
+4 2 Quesadilla salvadorena $4.00 i |
+2 SUBTOTAL: $22.25
+ss TAX: $2.22
+4 TOTAL: $24.47
+4 all )
+: TIP SUGGESTIONS
+A 18%: $4.40
+= 20%: $4.89
+4 25%: $6.12
+‘ Thank You!

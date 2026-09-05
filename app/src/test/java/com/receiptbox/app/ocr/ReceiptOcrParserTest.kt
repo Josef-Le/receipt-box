@@ -197,4 +197,37 @@ class ReceiptOcrParserTest {
         assertEquals(7.02, p.total!!, 0.001)
         assertTrue(p.lineItems.size >= 2)
     }
+
+    @Test
+    fun indonesianReceipt_idrThousands() {
+        val text = """
+            Warung Makan Sederhana
+            Jl. Merdeka 12
+            CINNAMON SUGAR
+            1 x 17.000 17.000
+            SUBTOTAL 17.000
+            GRAND TOTAL 17.000
+            CASHIDR 20.000
+            CHANGE 3.000
+        """.trimIndent()
+        val p = ReceiptOcrParser.parse(text)
+        assertEquals("IDR", p.currency)
+        assertEquals(17000.0, p.total!!, 0.001)
+        // Line-item extraction for "1 x 17.000" layouts is still weak; total/currency is the IDR win.
+    }
+
+    @Test
+    fun indonesianReceipt_commaThousands() {
+        val text = """
+            Toko Roti
+            TOTAL 46,000
+            CASH 50,000
+            CHANGE 4,000
+            Rp
+        """.trimIndent()
+        val p = ReceiptOcrParser.parse(text)
+        assertEquals("IDR", p.currency)
+        assertEquals(46000.0, p.total!!, 0.001)
+    }
+
 }

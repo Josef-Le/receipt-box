@@ -15,17 +15,21 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Add
 import androidx.compose.material.icons.outlined.Analytics
+import androidx.compose.material.icons.outlined.Clear
 import androidx.compose.material.icons.outlined.FileUpload
 import androidx.compose.material.icons.outlined.ReceiptLong
+import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material.icons.outlined.WorkspacePremium
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -53,6 +57,7 @@ fun HomeScreen(
     onPaywall: () -> Unit
 ) {
     val state by viewModel.uiState.collectAsState()
+    val searching = state.searchQuery.isNotBlank()
 
     Scaffold(
         topBar = {
@@ -78,7 +83,7 @@ fun HomeScreen(
         },
         floatingActionButton = {
             FloatingActionButton(onClick = {
-                if (!state.prefs.hasPro && state.receipts.size >= AppConstants.FREE_RECEIPT_LIMIT) {
+                if (!state.prefs.hasPro && state.totalCount >= AppConstants.FREE_RECEIPT_LIMIT) {
                     onPaywall()
                 } else {
                     onCapture()
@@ -88,54 +93,112 @@ fun HomeScreen(
             }
         }
     ) { padding ->
-        if (state.receipts.isEmpty()) {
-            Column(
+        Column(
+            Modifier
+                .fillMaxSize()
+                .padding(padding)
+        ) {
+            OutlinedTextField(
+                value = state.searchQuery,
+                onValueChange = viewModel::onSearchQueryChange,
                 modifier = Modifier
-                    .fillMaxSize()
-                    .padding(padding)
-                    .padding(32.dp),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center
-            ) {
-                Icon(
-                    Icons.Outlined.ReceiptLong,
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.primary,
-                    modifier = Modifier.height(72.dp)
-                )
-                Spacer(Modifier.height(16.dp))
-                Text("No receipts yet", style = MaterialTheme.typography.headlineMedium)
-                Spacer(Modifier.height(8.dp))
-                Text(
-                    "Snap a receipt — we parse line items, taxes, discounts, and payments on-device.",
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-                Spacer(Modifier.height(24.dp))
-                TextButton(onClick = onCapture) { Text("Scan first receipt") }
-            }
-        } else {
-            Column(
-                Modifier
-                    .fillMaxSize()
-                    .padding(padding)
-            ) {
-                if (!state.prefs.hasPro) {
-                    Text(
-                        text = "Free plan: ${state.receipts.size}/${AppConstants.FREE_RECEIPT_LIMIT} receipts · Upgrade for full analytics",
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
-                    )
-                }
-                LazyColumn(
-                    contentPadding = PaddingValues(16.dp),
-                    verticalArrangement = Arrangement.spacedBy(10.dp)
-                ) {
-                    items(state.receipts, key = { it.id }) { receipt ->
-                        ReceiptRow(receipt = receipt, onClick = { onOpen(receipt.id) })
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp, vertical = 8.dp),
+                singleLine = true,
+                label = { Text("Search receipts") },
+                placeholder = {
+                    Text("Merchant, tax ID, receipt #, product, barcode, notes…")
+                },
+                leadingIcon = { Icon(Icons.Outlined.Search, contentDescription = null) },
+                trailingIcon = {
+                    if (state.searchQuery.isNotBlank()) {
+                        IconButton(onClick = { viewModel.onSearchQueryChange("") }) {
+                            Icon(Icons.Outlined.Clear, contentDescription = "Clear search")
+                        }
                     }
-                    item { Spacer(Modifier.height(72.dp)) }
+                }
+            )
+
+            if (!state.prefs.hasPro && !searching) {
+                Text(
+                    text = "Free plan: ${state.totalCount}/${AppConstants.FREE_RECEIPT_LIMIT} receipts · Upgrade for full analytics",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp)
+                )
+            }
+
+            when {
+                state.searching -> {
+                    Column(
+                        Modifier.fillMaxSize(),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.Center
+                    ) {
+                        CircularProgressIndicator()
+                    }
+                }
+                state.receipts.isEmpty() && searching -> {
+                    Column(
+                        Modifier
+                            .fillMaxSize()
+                            .padding(32.dp),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.Center
+                    ) {
+                        Text("No matches", style = MaterialTheme.typography.headlineMedium)
+                        Spacer(Modifier.height(8.dp))
+                        Text(
+                            "Try merchant, company, ח.פ., receipt #, product name, or barcode.",
+                            style = MaterialTheme.typography.bodyLarge,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+                }
+                state.receipts.isEmpty() -> {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(32.dp),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.Center
+                    ) {
+                        Icon(
+                            Icons.Outlined.ReceiptLong,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.primary,
+                            modifier = Modifier.height(72.dp)
+                        )
+                        Spacer(Modifier.height(16.dp))
+                        Text("No receipts yet", style = MaterialTheme.typography.headlineMedium)
+                        Spacer(Modifier.height(8.dp))
+                        Text(
+                            "Snap a receipt — we parse line items, taxes, discounts, and payments on-device.",
+                            style = MaterialTheme.typography.bodyLarge,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                        Spacer(Modifier.height(24.dp))
+                        TextButton(onClick = onCapture) { Text("Scan first receipt") }
+                    }
+                }
+                else -> {
+                    if (searching) {
+                        Text(
+                            "${state.receipts.size} match${if (state.receipts.size == 1) "" else "es"}",
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp)
+                        )
+                    }
+                    LazyColumn(
+                        contentPadding = PaddingValues(16.dp),
+                        verticalArrangement = Arrangement.spacedBy(10.dp)
+                    ) {
+                        items(state.receipts, key = { it.id }) { receipt ->
+                            ReceiptRow(receipt = receipt, onClick = { onOpen(receipt.id) })
+                        }
+                        item { Spacer(Modifier.height(72.dp)) }
+                    }
                 }
             }
         }
@@ -170,6 +233,7 @@ private fun ReceiptRow(receipt: ReceiptListItem, onClick: () -> Unit) {
                     add(receipt.category)
                     if (receipt.status != "PURCHASE") add(receipt.status)
                     receipt.paymentMethod?.let { add(it) }
+                    receipt.companyName?.takeIf { it.isNotBlank() }?.let { add(it) }
                 }.joinToString(" · ")
                 Text(
                     meta,

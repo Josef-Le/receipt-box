@@ -40,13 +40,13 @@ object ExportWriter {
             }
             out.appendLine()
             out.appendLine("## line_items")
-            out.appendLine("receipt_id,position,name,sku,barcode,qty,unit_price,line_total,tax_flag")
+            out.appendLine("receipt_id,position,name,sku,barcode,qty,unit,unit_price,line_total,tax_flag")
             bundle.details.forEach { d ->
                 d.lineItems.forEach { li ->
                     out.appendLine(
                         listOf(
                             d.receipt.id, li.position, csv(li.name), csv(li.sku), csv(li.barcode),
-                            li.quantity, li.unitPrice, li.lineTotal, csv(li.taxFlag)
+                            li.quantity, csv(li.unit), li.unitPrice, li.lineTotal, csv(li.taxFlag)
                         ).joinToString(",")
                     )
                 }
@@ -95,7 +95,7 @@ object ExportWriter {
                     listOf(
                         "receipt_id", "datetime", "merchant", "store", "company", "tax_id_hp",
                         "receipt_number", "currency", "subtotal", "vat", "total",
-                        "line_pos", "line_name", "line_barcode", "qty", "unit_price", "line_total",
+                        "line_pos", "line_name", "line_barcode", "qty", "unit", "unit_price", "line_total",
                         "discount_desc", "discount_amount", "payment_method", "payment_amount"
                     ).joinToString(",")
                 )
@@ -127,6 +127,7 @@ object ExportWriter {
                                     csv(li?.name),
                                     csv(li?.barcode),
                                     li?.quantity?.toString().orEmpty(),
+                                    csv(li?.unit),
                                     li?.unitPrice?.toString().orEmpty(),
                                     li?.lineTotal?.toString().orEmpty(),
                                     csv(disc?.description),
@@ -158,7 +159,7 @@ object ExportWriter {
         root.put("stores", JSONArray().also { arr ->
             bundle.stores.forEach { s ->
                 arr.put(JSONObject().put("id", s.id).put("companyId", s.companyId)
-                    .put("name", s.name).put("address", s.address).put("phone", s.phone))
+                    .put("name", s.name).put("address", s.address).put("phone", s.phone).put("branch", s.branch))
             }
         })
         root.put("products", JSONArray().also { arr ->
@@ -239,7 +240,7 @@ object ExportWriter {
                 d.lineItems.forEach { li ->
                     arr.put(
                         JSONObject().put("name", li.name).put("sku", li.sku).put("barcode", li.barcode)
-                            .put("qty", li.quantity).put("unitPrice", li.unitPrice)
+                            .put("qty", li.quantity).put("unit", li.unit).put("unitPrice", li.unitPrice)
                             .put("lineTotal", li.lineTotal).put("productId", li.productId)
                     )
                 }

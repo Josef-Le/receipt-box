@@ -61,6 +61,7 @@ object DebugSeed {
         storeName = "Whole Foods - Downtown",
         address = "123 Market St, San Francisco, CA",
         phone = "415-555-0142",
+        branch = "12",
         datetimeMillis = whenMs,
         receiptNumber = "WF-1001",
         cashier = "Alex",
@@ -71,10 +72,10 @@ object DebugSeed {
         total = 46.11,
         confidence = 0.92f,
         lineItems = listOf(
-            ParsedLineItem("Organic Bananas", "BAN-4011", "4011", 1.2, 0.79, 0.95, "T"),
-            ParsedLineItem("Almond Milk", "AM-32OZ", "072250011234", 2.0, 3.99, 7.98, "T"),
-            ParsedLineItem("Avocado Toast Kit", "AVO-KIT", null, 1.0, 8.99, 8.99, "T"),
-            ParsedLineItem("Cold Brew Coffee", "CB-16", "072250099988", 1.0, 4.49, 4.49, "T")
+            ParsedLineItem(name = "Organic Bananas", sku = "BAN-4011", barcode = "4011", quantity = 1.2, unitPrice = 0.79, lineTotal = 0.95, taxFlag = "T"),
+            ParsedLineItem(name = "Almond Milk", sku = "AM-32OZ", barcode = "072250011234", quantity = 2.0, unitPrice = 3.99, lineTotal = 7.98, taxFlag = "T"),
+            ParsedLineItem(name = "Avocado Toast Kit", sku = "AVO-KIT", quantity = 1.0, unitPrice = 8.99, lineTotal = 8.99, taxFlag = "T"),
+            ParsedLineItem(name = "Cold Brew Coffee", sku = "CB-16", barcode = "072250099988", quantity = 1.0, unitPrice = 4.49, lineTotal = 4.49, taxFlag = "T")
         ),
         discounts = listOf(ParsedDiscount("Member Save", "MEM5", 2.50, null)),
         payments = listOf(ParsedPayment("VISA", 46.11, "4242", "OK8821", null))
@@ -99,9 +100,9 @@ object DebugSeed {
         total = 15.19,
         confidence = 0.88f,
         lineItems = listOf(
-            ParsedLineItem("Latte", "LATTE", null, 1.0, 5.50, 5.50, "T"),
-            ParsedLineItem("Croissant", "CROIS", null, 1.0, 4.25, 4.25, "T"),
-            ParsedLineItem("Pour Over", "POUR", null, 1.0, 4.25, 4.25, "T")
+            ParsedLineItem(name = "Latte", sku = "LATTE", quantity = 1.0, unitPrice = 5.50, lineTotal = 5.50, taxFlag = "T"),
+            ParsedLineItem(name = "Croissant", sku = "CROIS", quantity = 1.0, unitPrice = 4.25, lineTotal = 4.25, taxFlag = "T"),
+            ParsedLineItem(name = "Pour Over", sku = "POUR", quantity = 1.0, unitPrice = 4.25, lineTotal = 4.25, taxFlag = "T")
         ),
         payments = listOf(ParsedPayment("Apple Pay", 15.19, null, "APPL1", null))
     )
@@ -125,9 +126,9 @@ object DebugSeed {
         total = 73.74,
         confidence = 0.9f,
         lineItems = listOf(
-            ParsedLineItem("Copy Paper 500ct", "PAPER-500", "071641012345", 2.0, 12.99, 25.98, "T"),
-            ParsedLineItem("Gel Pens 12pk", "PEN-GEL12", "071641098765", 1.0, 9.99, 9.99, "T"),
-            ParsedLineItem("USB-C Hub", "HUB-USBC", "071641055512", 1.0, 31.99, 31.99, "T")
+            ParsedLineItem(name = "Copy Paper 500ct", sku = "PAPER-500", barcode = "071641012345", quantity = 2.0, unitPrice = 12.99, lineTotal = 25.98, taxFlag = "T"),
+            ParsedLineItem(name = "Gel Pens 12pk", sku = "PEN-GEL12", barcode = "071641098765", quantity = 1.0, unitPrice = 9.99, lineTotal = 9.99, taxFlag = "T"),
+            ParsedLineItem(name = "USB-C Hub", sku = "HUB-USBC", barcode = "071641055512", quantity = 1.0, unitPrice = 31.99, lineTotal = 31.99, taxFlag = "T")
         ),
         discounts = listOf(ParsedDiscount("Coupon", "SAVE10", 5.00, null)),
         payments = listOf(ParsedPayment("MASTERCARD", 73.74, "1111", "MC9901", null))

@@ -28,6 +28,13 @@ class ReceiptRepository(private val db: ReceiptDatabase) {
     fun observeStores(): Flow<List<Store>> = stores.observeAll()
     fun observeCompanies(): Flow<List<Company>> = companies.observeAll()
 
+    /** Global search across merchant/company/tax id/receipt #/product/barcode/notes. */
+    suspend fun search(query: String): List<ReceiptListItem> {
+        val q = query.trim()
+        if (q.isEmpty()) return receipts.listAll()
+        return receipts.search(q)
+    }
+
     suspend fun count(): Int = receipts.count()
     suspend fun getStores(): List<Store> = stores.getAll()
     suspend fun getCompanies(): List<Company> = companies.getAll()
@@ -78,7 +85,8 @@ class ReceiptRepository(private val db: ReceiptDatabase) {
             companyId = companyId,
             name = overrides?.storeName ?: parse.storeName ?: parse.merchant ?: "Unknown store",
             address = overrides?.address ?: parse.address,
-            phone = parse.phone
+            phone = parse.phone,
+            branch = parse.branch
         )
 
         val status = when {
@@ -138,6 +146,7 @@ class ReceiptRepository(private val db: ReceiptDatabase) {
                     sku = item.sku,
                     barcode = item.barcode,
                     quantity = item.quantity,
+                    unit = item.unit,
                     unitPrice = item.unitPrice,
                     lineTotal = item.lineTotal,
                     taxFlag = item.taxFlag,
@@ -206,8 +215,20 @@ class ReceiptRepository(private val db: ReceiptDatabase) {
 
     private suspend fun upsertCompany(name: String?, brand: String?, taxId: String?): Long? {
         if (name.isNullOrBlank() && taxId.isNullOrBlank()) return null
-        taxId?.takeIf { it.isNotBlank() }?.let { companies.findByTaxId(it) }?.let { return it.id }
+        taxId?.takeIf { it.isNotBlank() }?.let { companies.findByTaxId(it) }?.let { existing ->
+            val merged = existing.copy(
+                brand = existing.brand ?: brand,
+                legalName = if (existing.legalName.isBlank() && !name.isNullOrBlank()) name else existing.legalName
+            )
+            if (merged != existing) companies.update(merged)
+            return existing.id
+        }
         name?.takeIf { it.isNotBlank() }?.let { companies.findByName(it) }?.let { existing ->
+            val merged = existing.copy(
+                taxId = existing.taxId ?: taxId,
+                brand = existing.brand ?: brand
+            )
+            if (merged != existing) companies.update(merged)
             return existing.id
         }
         val legal = name?.takeIf { it.isNotBlank() } ?: return null
@@ -218,16 +239,20 @@ class ReceiptRepository(private val db: ReceiptDatabase) {
         companyId: Long?,
         name: String,
         address: String?,
-        phone: String?
+        phone: String?,
+        branch: String?
     ): Long {
         stores.findByNameAddress(name, address)?.let { existing ->
-            if (existing.companyId == null && companyId != null) {
-                stores.update(existing.copy(companyId = companyId, phone = existing.phone ?: phone))
-            }
+            val merged = existing.copy(
+                companyId = existing.companyId ?: companyId,
+                phone = existing.phone ?: phone,
+                branch = existing.branch ?: branch
+            )
+            if (merged != existing) stores.update(merged)
             return existing.id
         }
         return stores.insert(
-            Store(companyId = companyId, name = name, address = address, phone = phone)
+            Store(companyId = companyId, name = name, address = address, phone = phone, branch = branch)
         )
     }
 
