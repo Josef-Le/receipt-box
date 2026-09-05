@@ -140,10 +140,12 @@ class TessLanguagePackManager(private val context: Context) {
             "https://github.com/tesseract-ocr/tessdata_fast/raw/main"
 
         /** Bundled in APK assets (tessdata_fast). eng+heb ≈ 5 MB — Hebrew first-class. */
-        val BUNDLED_CODES = listOf("eng", "heb")
+        val BUNDLED_CODES = listOf(
+            "eng", "heb", "ara", "rus", "deu", "fra", "spa", "por", "ita", "tur", "pol"
+        )
 
-        /** Default OCR languages for Israeli receipts. */
-        val DEFAULT_CODES = listOf("eng", "heb")
+        /** Preferred auto OCR languages (installed subset, capped in defaultOcrLangString). */
+        val DEFAULT_CODES = BUNDLED_CODES
 
         data class Meta(val code: String, val label: String, val approxBytes: Long)
 

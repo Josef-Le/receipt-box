@@ -28,3 +28,15 @@ testdata/top.png
 testdata/mid.png
 testdata/bottom.png
 testdata/superpharm_bilu_real_pre.png
+
+# Local OCR scratch (keep real photo + final ocr dump)
+testdata/rot*.png
+testdata/o*.png
+testdata/top.png
+testdata/mid.png
+testdata/bottom.png
+testdata/oriented_up.png
+testdata/ocr_*.txt
+testdata/*.png
+!testdata/superpharm_bilu_real_pre.png
+.kotlin/
