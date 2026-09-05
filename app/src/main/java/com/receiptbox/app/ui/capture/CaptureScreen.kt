@@ -351,6 +351,27 @@ private fun EditStep(modifier: Modifier, state: CaptureUiState, viewModel: Captu
             }
         }
 
+        val discounts = state.parse?.discounts.orEmpty()
+        if (discounts.isNotEmpty()) {
+            Text("Discounts (${discounts.size})", style = MaterialTheme.typography.titleMedium)
+            discounts.forEach { d ->
+                Card(modifier = Modifier.fillMaxWidth()) {
+                    Column(Modifier.padding(12.dp)) {
+                        Text(d.description ?: "Discount", style = MaterialTheme.typography.titleMedium)
+                        Text(
+                            listOfNotNull(
+                                d.amount?.let { "amount ${"%.2f".format(it)}" },
+                                d.percent?.let { "${it}%" },
+                                d.code?.let { "code $it" }
+                            ).joinToString(" · "),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+                }
+            }
+        }
+
         if (state.payments.isNotEmpty()) {
             Text("Payments", style = MaterialTheme.typography.titleMedium)
             state.payments.forEach { p ->

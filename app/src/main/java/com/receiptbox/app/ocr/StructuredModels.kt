@@ -51,5 +51,5 @@ data class StructuredReceiptParse(
     val discounts: List<ParsedDiscount> = emptyList(),
     val payments: List<ParsedPayment> = emptyList(),
     val confidence: Float = 0f,
-    val parserVersion: String = "1.0"
+    val parserVersion: String = "1.1-il"
 )

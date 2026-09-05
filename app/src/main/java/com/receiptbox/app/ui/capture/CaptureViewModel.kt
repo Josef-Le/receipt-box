@@ -144,7 +144,7 @@ class CaptureViewModel(
                         address = state.address.trim().ifBlank { null },
                         receiptNumber = state.receiptNumber.trim().ifBlank { null },
                         datetime = state.dateMillis,
-                        currency = state.currency.trim().ifBlank { "USD" },
+                        currency = state.currency.trim().ifBlank { base.currency.ifBlank { "USD" } },
                         subtotal = state.subtotal.replace(',', '.').toDoubleOrNull(),
                         tax = state.tax.replace(',', '.').toDoubleOrNull(),
                         total = state.amount.replace(',', '.').toDoubleOrNull(),

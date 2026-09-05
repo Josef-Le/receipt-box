@@ -4,10 +4,13 @@ import android.app.Application
 import com.receiptbox.app.billing.BillingManager
 import com.receiptbox.app.data.PreferencesRepository
 import com.receiptbox.app.data.ReceiptDatabase
+import com.receiptbox.app.data.DebugSeed
 import com.receiptbox.app.data.ReceiptRepository
 import com.receiptbox.app.ocr.OcrHelper
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import com.receiptbox.app.BuildConfig
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.SupervisorJob
 
 class ReceiptBoxApp : Application() {
@@ -30,5 +33,10 @@ class ReceiptBoxApp : Application() {
         billingManager = BillingManager(this, preferencesRepository, appScope)
         billingManager.start()
         ocrHelper = OcrHelper(this)
+        if (BuildConfig.DEBUG) {
+            appScope.launch(Dispatchers.IO) {
+                DebugSeed.maybeSeed(receiptRepository, preferencesRepository)
+            }
+        }
     }
 }
